@@ -14,7 +14,6 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained();
             $table->string('name');
             $table->string('city');                 //filter locatie
-            $table->unsignedTinyInteger('price_level'); //prijs range
             $table->string('image')->nullable();
             $table->timestamps();
         });

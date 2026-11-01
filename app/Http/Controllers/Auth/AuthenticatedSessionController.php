@@ -26,6 +26,18 @@ class AuthenticatedSessionController extends Controller
     {
         $request->authenticate();
 
+        //gebruiker gedeactiveerd door admin? log uit en laat error zien
+        if(!$request->user()->is_active){
+            Auth::guard('web')->logout();
+
+            return back()->withErrors([
+                'email' => 'Je account is gedeactiveerd.'
+            ]);
+        }
+
+        //slaat op hoeveel keer er is ingelogd
+        $request->user()->logins()->create();
+
         $request->session()->regenerate();
 
         return redirect()->intended(route('dashboard', absolute: false));

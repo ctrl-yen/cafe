@@ -13,7 +13,6 @@ return new class extends Migration
             //wie de review schreef (alleen deze user mag hem wijzigen)
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('cafe_id')->constrained()->cascadeOnDelete();
-            $table->unsignedTinyInteger('rating'); //1 t/m 5 sterren
             $table->text('body');
             $table->string('image')->nullable();
             $table->timestamps();

@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*
+ | Herbruikbare classes voor Cafe Society.
+ | Gebruik deze in je eigen views, dan blijft alles in hetzelfde thema.
+ */
+@layer base {
+    body {
+        @apply min-h-screen bg-cream-100 text-espresso-800 font-sans antialiased;
+    }
+}
+
+@layer components {
+    .container-cozy { @apply max-w-5xl mx-auto px-4; }
+
+    .card { @apply bg-white border border-cream-300 rounded-lg; }
+
+    .btn { @apply inline-flex items-center justify-center px-4 py-2 rounded-md font-semibold text-sm transition focus:outline-none focus:ring-2 focus:ring-offset-2; }
+    .btn-primary { @apply btn bg-sage-600 text-white hover:bg-sage-700 focus:ring-sage-400; }
+    .btn-outline { @apply btn border border-sage-600 text-sage-700 hover:bg-sage-50 focus:ring-sage-400; }
+    .btn-danger  { @apply btn bg-red-700 text-white hover:bg-red-800 focus:ring-red-400; }
+
+    .input { @apply block w-full rounded-md border-cream-300 focus:border-sage-500 focus:ring-sage-400; }
+    .label { @apply block text-sm font-semibold mb-1; }
+
+    .link { @apply text-sage-700 font-semibold hover:underline; }
+}
